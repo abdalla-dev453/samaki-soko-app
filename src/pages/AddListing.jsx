@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 
 import useListings from "../hooks/useListings"
+import { ImagePlus, Plus } from "lucide-react"
 
 function AddListing() {
 
@@ -69,9 +70,14 @@ function AddListing() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div className="mx-auto max-w-3xl px-6 py-10">
+      <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-xl shadow-slate-950/8 sm:p-8 dark:border-white/10 dark:bg-white/6">
 
-      <h1 className="text-3xl font-bold mb-6 text-blue-900">
+      <p className="text-sm font-black uppercase tracking-[0.22em] text-teal-700 dark:text-teal-300">
+        Seller listing
+      </p>
+
+      <h1 className="mb-6 mt-2 text-4xl font-black tracking-tight text-slate-950 dark:text-white">
         Add Fish Listing
       </h1>
 
@@ -94,7 +100,7 @@ function AddListing() {
             placeholder="Example: Tuna"
             value={formData.species}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"
+            className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
             required
           />
 
@@ -114,7 +120,7 @@ function AddListing() {
             placeholder="Enter price"
             value={formData.pricePerKg}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"
+            className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
             required
           />
 
@@ -134,7 +140,7 @@ function AddListing() {
             placeholder="Available quantity"
             value={formData.quantity}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"
+            className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
             required
           />
 
@@ -154,7 +160,7 @@ function AddListing() {
             placeholder="Seller name"
             value={formData.seller}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"
+            className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
             required
           />
 
@@ -174,7 +180,7 @@ function AddListing() {
             placeholder="Boat name"
             value={formData.boatName}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"
+            className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
             required
           />
 
@@ -192,7 +198,7 @@ function AddListing() {
             name="location"
             value={formData.location}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"
+            className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
             required
           >
 
@@ -228,7 +234,7 @@ function AddListing() {
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="w-full"
+            className="w-full rounded-lg border border-dashed border-slate-300 bg-slate-50 p-4 text-sm font-semibold file:mr-4 file:rounded-full file:border-0 file:bg-teal-700 file:px-4 file:py-2 file:font-black file:text-white dark:border-white/10 dark:bg-slate-950/50"
           />
 
         </div>
@@ -240,13 +246,16 @@ function AddListing() {
           <div>
 
             <p className="mb-2 font-medium">
-              Image Preview
+              <span className="inline-flex items-center gap-2">
+                <ImagePlus size={17} />
+                Image Preview
+              </span>
             </p>
 
             <img
               src={preview}
               alt="Preview"
-              className="w-full h-64 object-cover rounded-xl"
+              className="h-64 w-full rounded-lg object-cover"
             />
 
           </div>
@@ -257,13 +266,15 @@ function AddListing() {
 
         <button
           type="submit"
-          className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 py-4 font-black text-white hover:bg-teal-800 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-white"
         >
+          <Plus size={18} />
           Add Listing
         </button>
 
       </form>
 
+      </div>
     </div>
   )
 }

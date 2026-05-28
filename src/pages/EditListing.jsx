@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import useListings from '../hooks/useListings';
+import { Save } from 'lucide-react';
 
 const EditListing = () => {
 
@@ -52,16 +53,21 @@ const EditListing = () => {
 
   if (!fish) {
     return (
-      <h1 className='text-2xl font-bold'>
-        Listing not found
-      </h1>
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <h1 className='text-2xl font-black'>Listing not found</h1>
+      </div>
     )
   }
 
   return (
-    <div className='max-w-2xl mx-auto bg-white p-8 rounded-xl shadow'>
+    <div className='mx-auto max-w-3xl px-6 py-10'>
+      <div className='rounded-lg border border-slate-200 bg-white p-6 shadow-xl shadow-slate-950/8 sm:p-8 dark:border-white/10 dark:bg-white/6'>
 
-      <h1 className='text-3xl font-bold md-6'>
+      <p className="text-sm font-black uppercase tracking-[0.22em] text-teal-700 dark:text-teal-300">
+        Seller listing
+      </p>
+
+      <h1 className='mb-6 mt-2 text-4xl font-black tracking-tight text-slate-950 dark:text-white'>
         Edit Listing
       </h1>
 
@@ -76,7 +82,7 @@ const EditListing = () => {
           value={formData.species}
           onChange={handleChange}
           placeholder="Species"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
           />
 
           <input 
@@ -85,7 +91,7 @@ const EditListing = () => {
           value={formData.pricePerKg}
           onChange={handleChange}
           placeholder="Price per Kg"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
           />
 
           <input 
@@ -94,7 +100,7 @@ const EditListing = () => {
           value={formData.quantity}
           onChange={handleChange}
           placeholder="Quantity"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
           />
 
           <input 
@@ -103,7 +109,7 @@ const EditListing = () => {
           value={formData.seller}
           onChange={handleChange}
           placeholder="Seller"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
           />
 
           <input 
@@ -112,14 +118,14 @@ const EditListing = () => {
           value={formData.boatName}
           onChange={handleChange}
           placeholder="Boat Name"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
           />
 
           <select 
           name="location" 
           value={formData.location}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="h-13 w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/10 dark:bg-slate-950/70 dark:text-white"
           >
             <option value="">Select Location</option>
             <option value="Shimoni">Shimoni</option>
@@ -131,13 +137,15 @@ const EditListing = () => {
 
           <button 
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 py-4 font-black text-white hover:bg-teal-800 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-white"
           >
+            <Save size={18} />
             Update Listing 
           </button>
 
       </form>
 
+      </div>
     </div>
   )
 }

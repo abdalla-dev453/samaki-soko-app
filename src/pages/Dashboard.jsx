@@ -3,6 +3,7 @@ import toast from "react-hot-toast"
 import useAuth from "../hooks/useAuth"
 import useListings from "../hooks/useListings"
 import StatsCard from "../components/StatsCard"
+import { LogOut, Plus } from "lucide-react"
 
 function Dashboard() {
 
@@ -15,19 +16,23 @@ function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="mx-auto max-w-7xl px-6 py-10">
 
       {/* HEADER */}
 
-      <div className="flex justify-between items-center mb-8">
+      <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
 
         <div>
 
-          <h1 className="text-4xl font-bold">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-teal-700 dark:text-teal-300">
+            Seller cockpit
+          </p>
+
+          <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl dark:text-white">
             Welcome, {user?.name}
           </h1>
 
-          <p className="text-gray-600">
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
             Manage your fish listings
           </p>
 
@@ -35,8 +40,9 @@ function Dashboard() {
 
         <button
           onClick={logout}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-red-200 bg-red-50 px-5 py-3 font-black text-red-700 hover:bg-red-600 hover:text-white dark:border-red-400/20 dark:bg-red-400/10 dark:text-red-200"
         >
+          <LogOut size={17} />
           Logout
         </button>
 
@@ -50,7 +56,7 @@ function Dashboard() {
         <StatsCard
           title="Total Listings"
           value={listings.length}
-          color="text-black"
+          color="text-slate-950 dark:text-white"
         />
 
         <StatsCard
@@ -60,9 +66,9 @@ function Dashboard() {
         />
 
         <StatsCard
-          title="Earnings"
-          value="KES 42,000"
-          color="text-blue-900"
+          title="Earnings in KES#"
+          value={listings.reduce((total, fish) => total + (fish.pricePerKg * fish.quantity), 0)}
+          color="text-teal-800 dark:text-teal-300"
         />
 
       </div>
@@ -71,18 +77,19 @@ function Dashboard() {
 
       <Link
         to="/dashboard/add"
-        className="inline-block mb-6 bg-blue-900 text-white px-6 py-3 rounded-lg"
+        className="mb-6 inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 font-black text-white shadow-lg shadow-slate-950/10 hover:bg-teal-800 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-white"
       >
+        <Plus size={18} />
         Add New Listing
       </Link>
 
       {/* TABLE */}
 
-      <div className="bg-white rounded-xl shadow overflow-x-auto">
+      <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/6">
 
         <table className="w-full">
 
-          <thead className="bg-blue-900 text-white">
+          <thead className="bg-slate-950 text-white dark:bg-white/10">
 
             <tr>
 
@@ -112,10 +119,10 @@ function Dashboard() {
 
               <tr
                 key={fish.id}
-                className="border-b"
+                className="border-b border-slate-100 last:border-0 dark:border-white/10"
               >
 
-                <td className="p-4">
+                <td className="p-4 font-black text-slate-950 dark:text-white">
                   {fish.species}
                 </td>
 
@@ -131,13 +138,13 @@ function Dashboard() {
 
                   <Link
                     to={`/dashboard/listings/${fish.id}/edit`}
-                    className="bg-yellow-600 text-white px-3 py-1 rounded"
+                    className="rounded-full bg-amber-100 px-4 py-2 text-sm font-black text-amber-800 hover:bg-amber-200"
                   >
                     Edit
                   </Link>
 
                   <button
-                    className="bg-red-600 text-white px-3 py-1 rounded"
+                    className="rounded-full bg-red-50 px-4 py-2 text-sm font-black text-red-700 hover:bg-red-600 hover:text-white"
                     onClick={() => handleDelete(fish.id)}
                   >
                     Delete

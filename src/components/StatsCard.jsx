@@ -4,13 +4,13 @@ const StatsCard = ({
   color,
 }) => {
   return (
-    <div className={`bg-white p-6 rounded-xl shadow`}>
+    <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/6">
 
-      <h2 className="text-lg font-semibold">
+      <h2 className="text-sm font-black uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
         {title}
         </h2>
 
-      <p className={`text-4xl font-bold ${color}`}
+      <p className={`mt-3 text-4xl font-black ${color}`}
       >
         {value}
         </p>

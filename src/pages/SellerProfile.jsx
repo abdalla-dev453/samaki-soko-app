@@ -33,7 +33,7 @@ const SellerProfile = () => {
 
           <div>
 
-            <h1 className="text-4xl font-bold mb-2">
+            <h1 className="text-4xl font-bold mb-2 text-gray-700">
               {sellerFish.seller}
             </h1>
 
@@ -51,7 +51,7 @@ const SellerProfile = () => {
 
             <div className="bg-blue-100 p-4 rounded-lg">
 
-              <p className="font-semibold">
+              <p className="font-semibold text-yellow-800">
                 Active Listings
               </p>
 

@@ -1,17 +1,17 @@
 function SkeletonLoader() {
 
   return (
-    <div className="animate-pulse bg-white rounded-2xl shadow overflow-hidden">
+    <div className="animate-pulse overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/6">
 
-      <div className="bg-gray-300 h-52"></div>
+      <div className="h-56 bg-slate-200 dark:bg-white/10"></div>
 
-      <div className="p-4 space-y-3">
+      <div className="space-y-4 p-5">
 
-        <div className="h-4 bg-gray-300 rounded"></div>
+        <div className="h-5 rounded bg-slate-200 dark:bg-white/10"></div>
 
-        <div className="h-4 bg-gray-300 rounded"></div>
+        <div className="h-4 rounded bg-slate-200 dark:bg-white/10"></div>
 
-        <div className="h-4 bg-gray-300 rounded"></div>
+        <div className="h-4 rounded bg-slate-200 dark:bg-white/10"></div>
 
       </div>
 
